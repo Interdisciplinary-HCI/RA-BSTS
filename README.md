@@ -31,10 +31,10 @@ npm install
 
 ```
 echo '\n*.env' >> .gitignore
-echo 'GROQ_API_KEY = "gsk_..."' > ./backend/.env
+echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
 ```
 
-5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file) and pull three models. Read details here: https://ollama.com/library.
+5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file) and pull the models as below. Read details here: https://ollama.com/library.
 
 ```
 <ollama installed>
@@ -57,10 +57,14 @@ npm install @langchain/community chromadb
 
 ```
 // 1. Chromadb tab: Make sure docker is running in the background before.
-RA-BSTS/backend % docker run -p 8000:8000 -v /absolute/path/on/your/machine:/data ghcr.io/chroma-core/chroma:latest
+RA-BSTS/backend % docker run -p 8000:8000 -v </absolute/path/on/your/machine>:/data ghcr.io/chroma-core/chroma:latest
 ```
 
-<!-- docker run -p 8000:8000 -v /Users/Palindrome/Documents/project_gits/RA-BSTS/backend/chroma_data:/data ghcr.io/chroma-core/chroma:latest -->
+- example:
+
+```
+docker run -p 8000:8000 -v /Users/Palindrome/Documents/project_gits/RA-BSTS/backend/chroma_data:/data ghcr.io/chroma-core/chroma:latest
+```
 
 ```
 // 2. ollama tab
