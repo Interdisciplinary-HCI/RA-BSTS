@@ -34,7 +34,7 @@ echo '\n*.env' >> .gitignore
 echo 'GROQ_API_KEY = "gsk_..."' > ./backend/.env
 ```
 
-5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file) and pull three models. Read details here: https://ollama.com/library.
+5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file) and pull the models as below. Read details here: https://ollama.com/library.
 
 ```
 <ollama installed>
