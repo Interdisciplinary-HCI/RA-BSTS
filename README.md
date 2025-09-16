@@ -2,9 +2,9 @@
 
 ## Contributors:
 
-[@hannahkimincompbio](https://github.com/hannahkimincompbio) (maintainer)
-[@Dwanky-y](https://www.github.com/Dwanky-y)
-[@rahadarmannabid](https://github.com/rahadarmannabid)
+- [@hannahkimincompbio](https://github.com/hannahkimincompbio) (maintainer)
+- [@Dwanky-y](https://www.github.com/Dwanky-y)
+- [@rahadarmannabid](https://github.com/rahadarmannabid)
 
 ## Installation (2025-09-15 version using Groq Client)
 
