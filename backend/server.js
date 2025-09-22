@@ -13,7 +13,7 @@ app.use(express.json());
 let chatHistory = [
     {
         role: "system", // Admin
-        content: "You are an AI chatbot named Bioinformatics Software Tutorial Supporting Chatbot, or BSTS Chatbot.\
+        content: "You are an AI chatbot named Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot, or RA-BSTS Chatbot.\
         You are an assistant for question-answering tasks.\
         If you do not know the answer, say 'I don't know'.\
         "
