@@ -39,7 +39,7 @@ cd backend
 npm install
 ```
 
-4. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder.
+4. Obtain a _free_ API key from Groq (https://console.groq.com/keys). Keep this key somewhere safe. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder.
 
 ```
 echo '\n*.env' >> .gitignore
