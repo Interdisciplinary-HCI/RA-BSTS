@@ -3,6 +3,7 @@
 ## Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot
 
 _Last Updated: 2025-09-22 (using Groq Client)_
+
 _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 
 ## Contributors
@@ -22,6 +23,7 @@ git clone https://github.com/Interdisciplinary-HCI/RA-BSTS.git
 **OR**
 
 Download Zip file and unzip the file.
+
 ![Download Zip file](./Download%20Zip.png)
 
 2. Install `Node.js` and `npm`.
