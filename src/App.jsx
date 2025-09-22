@@ -6,7 +6,7 @@ import "./App.css";
 const port = 5001;
 
 function App() {
-  document.title = "BSTS Chatbot";
+  document.title = "RA-BSTS Chatbot";
 
   // BASIC CHAT MANAGEMENT /////////////////////////////////////////////////////////////////////////
 

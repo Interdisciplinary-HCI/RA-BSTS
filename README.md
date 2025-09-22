@@ -1,24 +1,34 @@
-# Retrieval Augmented Bioinformatics Software Tutorial Supporting Chatbot (RA-BSTS Chatbot)
+# RA-BSTS Chatbot
 
-## Contributors:
+## Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot
 
-- [@hannahkimincompbio](https://github.com/hannahkimincompbio) (maintainer)
-- [@Dwanky-y](https://www.github.com/Dwanky-y)
-- [@rahadarmannabid](https://github.com/rahadarmannabid)
+_Last Updated: 2025-09-22 (using Groq Client)_
+_Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 
-## Installation (2025-09-15 version using Groq Client)
+## Contributors
 
-1. Clone the git repository
+- Hannah Kim [@hannahkimincompbio](https://github.com/hannahkimincompbio) (maintainer)
+- Minh Doan [@Dwanky-y](https://www.github.com/Dwanky-y)
+- Rahad Arman Nabid [@rahadarmannabid](https://github.com/rahadarmannabid)
+
+## Installation
+
+1. Clone the git repository.
 
 ```
 git clone https://github.com/Interdisciplinary-HCI/RA-BSTS.git
 ```
 
-2. Install `Node.js` and `npm`
+**OR**
+
+Download Zip file and unzip the file.
+![Download Zip file](./Download%20Zip.png)
+
+2. Install `Node.js` and `npm`.
 
 Follow instructions here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
-3. Install package requirements from `package-lock.json`
+3. Install package requirements from `package-lock.json`.
 
 ```
 cd RA-BSTS
@@ -44,15 +54,12 @@ ollama pull mxbai-embed-large // 669 MB
 <!-- ollama pull llama2:7b // 3.8 GB
 ollama pull llama-guard3:8b // 4.9 GB -->
 
-6. Install docker.
+6. Install docker https://www.docker.com/get-started/.
 
-7. Install chromadb. https://v03.api.js.langchain.com/classes/_langchain_community.vectorstores_chroma.Chroma.html
+## Run RA-BSTS Chatbot on the Command Line
 
-```
-npm install @langchain/community chromadb
-```
+Have FOUR tabs open in the terminal to observe each process.
 
-8. Have FOUR tabs open in the terminal to observe each process.
 <!-- Or just simply run `sh run.sh` after `cd RA-BSTS`. Make sure that docker is running in the background. -->
 
 ```
