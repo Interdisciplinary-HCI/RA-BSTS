@@ -6,11 +6,17 @@ _Last Updated: 2025-09-23 (using Groq Client)_
 
 _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 
-## Contributors
+### Contributors
 
 - [Hannah Kim](https://github.com/hannahkimincompbio) (maintainer)
 - [Minh Doan](https://www.github.com/Dwanky-y)
 - [Rahad Arman Nabid](https://github.com/rahadarmannabid)
+
+### Index
+
+- [**Installation**](#installation)
+- [**Run RA-BSTS Chatbot on the Command Line**](#run-ra-bsts-chatbot-on-the-command-line)
+- [**References**](#references)
 
 ## Installation
 
@@ -40,7 +46,6 @@ npm install
 4. Obtain a _free_ API key from Groq (https://console.groq.com/keys). Keep this key somewhere safe. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder.
 
 ```
-echo '\n*.env' >> .gitignore
 echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
 ```
 
@@ -94,4 +99,4 @@ node server.js
 
 ## References
 
-- [BioGenie: BioInformatics Software Tutorial Chatbot S2025 Capstone Project](https://github.com/Capstone-Projects-2025-Spring/project-003-bioinformatics-chatbot)
+- [BioGenie](https://github.com/Capstone-Projects-2025-Spring/project-003-bioinformatics-chatbot): BioInformatics Software Tutorial Chatbot S2025 Capstone Project
