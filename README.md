@@ -32,7 +32,7 @@ Download ZIP file and unzip the file.
 
 ![Download ZIP file](./Download%20Zip.png)
 
-### 2. Install `Node.js` and `npm`. Follow instructions here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
+### 2. Install `Node.js` and `npm` (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 ### 3. Install package requirements from `package-lock.json` as below.
 
@@ -58,7 +58,7 @@ ollama pull mxbai-embed-large // 669 MB
 <!-- ollama pull llama2:7b // 3.8 GB
 ollama pull llama-guard3:8b // 4.9 GB -->
 
-### 6. Install `docker` https://www.docker.com/get-started/.
+### 6. Install `docker` (https://www.docker.com/get-started/).
 
 ---
 
