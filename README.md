@@ -67,7 +67,7 @@ ollama pull llama-guard3:8b // 4.9 GB -->
 
 Have FOUR tabs open in the terminal to observe each process.
 
-<!-- Or just simply run `sh run.sh` after `cd RA-BSTS`. Make sure that docker is running in the background. -->
+(Or just simply run `sh run.sh` after `cd RA-BSTS`, but do note that processes need to be manually killed for reruns. Make sure that docker is running in the background.)
 
 ### 1. Chromadb tab: Make sure docker is running in the background before.
 
@@ -81,7 +81,7 @@ docker run -p 8000:8000 -v </absolute/path/on/your/machine>:/data ghcr.io/chroma
 docker run -p 8000:8000 -v /Users/Palindrome/Documents/project_gits/RA-BSTS/backend/chroma_data:/data ghcr.io/chroma-core/chroma:latest
 ```
 
-### 2. ollama tab
+### 2. Ollama tab
 
 ```
 ollama serve
