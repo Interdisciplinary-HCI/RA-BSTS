@@ -69,30 +69,34 @@ Have FOUR tabs open in the terminal to observe each process.
 
 <!-- Or just simply run `sh run.sh` after `cd RA-BSTS`. Make sure that docker is running in the background. -->
 
+### 1. Chromadb tab: Make sure docker is running in the background before.
+
 ```
-// 1. Chromadb tab: Make sure docker is running in the background before.
 docker run -p 8000:8000 -v </absolute/path/on/your/machine>:/data ghcr.io/chroma-core/chroma:latest
 ```
 
-- example:
+#### example:
 
 ```
 docker run -p 8000:8000 -v /Users/Palindrome/Documents/project_gits/RA-BSTS/backend/chroma_data:/data ghcr.io/chroma-core/chroma:latest
 ```
 
+### 2. ollama tab
+
 ```
-// 2. ollama tab
 ollama serve
 ```
 
+### 3. Frontend tab: Once you run this line, the web app can be viewed on the browser at 'http://localhost:5173/'
+
 ```
-// 3. Frontend tab: Once you run this line, the web app can be viewed on the browser at 'http://localhost:5173/'
 cd RA-BSTS
 npm run dev
 ```
 
+### 4. Backend tab
+
 ```
-// 4. Backend tab
 cd backend
 node server.js
 ```
