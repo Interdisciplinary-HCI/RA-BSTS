@@ -103,4 +103,4 @@ node server.js
 
 ## References
 
-- [BioGenie](https://github.com/Capstone-Projects-2025-Spring/project-003-bioinformatics-chatbot): BioInformatics Software Tutorial Chatbot S2025 Capstone Project
+- [BioGenie](https://github.com/Capstone-Projects-2025-Spring/project-003-bioinformatics-chatbot): BioInformatics Software Tutorial Chatbot Temple University S2025 Capstone Project
