@@ -1,6 +1,7 @@
+<p align="center">
 # RA-BSTS Chatbot
-
 ## Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot
+<p>
 
 _Last Updated: 2025-09-23 (using Groq Client)_
 
@@ -12,11 +13,13 @@ _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 - [Minh Doan](https://www.github.com/Dwanky-y)
 - [Rahad Arman Nabid](https://github.com/rahadarmannabid)
 
-### Index
+### Table of Contents
 
 - [**Installation**](#installation)
 - [**Run RA-BSTS Chatbot on the Command Line**](#run-ra-bsts-chatbot-on-the-command-line)
 - [**References**](#references)
+
+---
 
 ## Installation
 
