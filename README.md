@@ -26,9 +26,7 @@ _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 git clone https://github.com/Interdisciplinary-HCI/RA-BSTS.git
 ```
 
-**OR**
-
-Download ZIP file and unzip the file.
+(Or download ZIP file and unzip the file.)
 
 ![Download ZIP file](./Download%20Zip.png)
 
