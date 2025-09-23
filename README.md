@@ -20,7 +20,7 @@ _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 
 ## Installation
 
-### 1. Clone the git repository.
+### 1. Clone the git repository as below.
 
 ```
 git clone https://github.com/Interdisciplinary-HCI/RA-BSTS.git
@@ -34,7 +34,7 @@ Download ZIP file and unzip the file.
 
 ### 2. Install `Node.js` and `npm`. Follow instructions here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
-### 3. Install package requirements from `package-lock.json`.
+### 3. Install package requirements from `package-lock.json` as below.
 
 ```
 cd RA-BSTS
@@ -43,16 +43,15 @@ cd backend
 npm install
 ```
 
-### 4. Obtain a _free_ API key from Groq (https://console.groq.com/keys). Keep this key somewhere safe. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder.
+### 4. Obtain a _free_ API key from Groq (https://console.groq.com/keys). Keep this key somewhere safe. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder as below.
 
 ```
 echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
 ```
 
-### 5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file) and pull the models as below. Read details here: https://ollama.com/library.
+### 5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file). Read details about each model here: https://ollama.com/library. Pull the required models as below.
 
 ```
-<ollama installed>
 ollama pull mxbai-embed-large // 669 MB
 ```
 
