@@ -1,7 +1,6 @@
-<p align="center">
 # RA-BSTS Chatbot
-## Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot
-<p>
+
+## Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot (RA-BSTS Chatbot)
 
 _Last Updated: 2025-09-23 (using Groq Client)_
 
