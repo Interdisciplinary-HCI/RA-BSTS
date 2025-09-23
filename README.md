@@ -2,15 +2,15 @@
 
 ## Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot
 
-_Last Updated: 2025-09-22 (using Groq Client)_
+_Last Updated: 2025-09-23 (using Groq Client)_
 
 _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 
 ## Contributors
 
-- Hannah Kim [@hannahkimincompbio](https://github.com/hannahkimincompbio) (maintainer)
-- Minh Doan [@Dwanky-y](https://www.github.com/Dwanky-y)
-- Rahad Arman Nabid [@rahadarmannabid](https://github.com/rahadarmannabid)
+- [Hannah Kim](https://github.com/hannahkimincompbio) (maintainer)
+- [Minh Doan](https://www.github.com/Dwanky-y)
+- [Rahad Arman Nabid](https://github.com/rahadarmannabid)
 
 ## Installation
 
@@ -22,13 +22,11 @@ git clone https://github.com/Interdisciplinary-HCI/RA-BSTS.git
 
 **OR**
 
-Download Zip file and unzip the file.
+Download ZIP file and unzip the file.
 
-![Download Zip file](./Download%20Zip.png)
+![Download ZIP file](./Download%20ZIP.png)
 
-2. Install `Node.js` and `npm`.
-
-Follow instructions here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+2. Install `Node.js` and `npm`. Follow instructions here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 3. Install package requirements from `package-lock.json`.
 
@@ -66,7 +64,7 @@ Have FOUR tabs open in the terminal to observe each process.
 
 ```
 // 1. Chromadb tab: Make sure docker is running in the background before.
-RA-BSTS/backend % docker run -p 8000:8000 -v </absolute/path/on/your/machine>:/data ghcr.io/chroma-core/chroma:latest
+docker run -p 8000:8000 -v </absolute/path/on/your/machine>:/data ghcr.io/chroma-core/chroma:latest
 ```
 
 - example:
@@ -77,15 +75,23 @@ docker run -p 8000:8000 -v /Users/Palindrome/Documents/project_gits/RA-BSTS/back
 
 ```
 // 2. ollama tab
-RA-BSTS/backend % ollama serve
+ollama serve
 ```
 
 ```
-// 3. Backend tab
-RA-BSTS/backend % node server.js
+// 3. Frontend tab: Once you run this line, the web app can be viewed on the browser at 'http://localhost:5173/'
+cd RA-BSTS
+npm run dev
 ```
 
 ```
-// 4. Frontend tab: Once you run this line, the web app can be viewed on the browser at 'http://localhost:5173/'
-RA-BSTS % npm run dev
+// 4. Backend tab
+cd backend
+node server.js
 ```
+
+<!-- node server.js > "pid_serverlog.log" -->
+
+## References
+
+- [BioGenie: BioInformatics Software Tutorial Chatbot S2025 Capstone Project](https://github.com/Capstone-Projects-2025-Spring/project-003-bioinformatics-chatbot)
