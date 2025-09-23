@@ -88,7 +88,7 @@ ollama serve
 
 ### 3. Frontend tab
 
-Once you run this line, the web app can be viewed on the browser at http://localhost:5173/
+Once you run this line, the web app can be viewed on the browser at http://localhost:5173/.
 
 ```
 cd RA-BSTS
