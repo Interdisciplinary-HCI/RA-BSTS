@@ -49,7 +49,7 @@ npm install
 echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
 ```
 
-### 5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file). Read details about each model here: https://ollama.com/library. Pull the required models as below.
+### 5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file). Pull the required models (https://ollama.com/library) as below.
 
 ```
 ollama pull mxbai-embed-large // 669 MB
@@ -86,7 +86,9 @@ docker run -p 8000:8000 -v /Users/Palindrome/Documents/project_gits/RA-BSTS/back
 ollama serve
 ```
 
-### 3. Frontend tab: Once you run this line, the web app can be viewed on the browser at 'http://localhost:5173/'
+### 3. Frontend tab
+
+Once you run this line, the web app can be viewed on the browser at http://localhost:5173/
 
 ```
 cd RA-BSTS
