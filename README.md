@@ -1,18 +1,18 @@
-# RA-BSTS Chatbot
-
-## Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot (RA-BSTS Chatbot)
+# Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot (RA-BSTS Chatbot)
 
 _Last Updated: 2025-09-23 (using Groq Client)_
 
 _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 
-### Contributors
+---
+
+## Contributors
 
 - [Hannah Kim](https://github.com/hannahkimincompbio) (maintainer)
 - [Minh Doan](https://www.github.com/Dwanky-y)
 - [Rahad Arman Nabid](https://github.com/rahadarmannabid)
 
-### Table of Contents
+## Table of Contents
 
 - [**Installation**](#installation)
 - [**Run RA-BSTS Chatbot on the Command Line**](#run-ra-bsts-chatbot-on-the-command-line)
@@ -63,6 +63,8 @@ ollama pull llama-guard3:8b // 4.9 GB -->
 
 6. Install docker https://www.docker.com/get-started/.
 
+---
+
 ## Run RA-BSTS Chatbot on the Command Line
 
 Have FOUR tabs open in the terminal to observe each process.
@@ -98,6 +100,8 @@ node server.js
 ```
 
 <!-- node server.js > "pid_serverlog.log" -->
+
+---
 
 ## References
 
