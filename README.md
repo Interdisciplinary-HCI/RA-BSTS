@@ -20,7 +20,7 @@ _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 
 ## Installation
 
-### 1. Clone the git repository as below.
+1. Clone the git repository as below.
 
 ```
 git clone https://github.com/Interdisciplinary-HCI/RA-BSTS.git
@@ -32,9 +32,9 @@ Download ZIP file and unzip the file.
 
 ![Download ZIP file](./Download%20Zip.png)
 
-### 2. Install `Node.js` and `npm` (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+2. Install `Node.js` and `npm` (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-### 3. Install package requirements from `package-lock.json` as below.
+3. Install package requirements from `package-lock.json` as below.
 
 ```
 cd RA-BSTS
@@ -43,13 +43,13 @@ cd backend
 npm install
 ```
 
-### 4. Obtain a _free_ API key from `Groq` (https://console.groq.com/keys). Keep this key somewhere safe. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder as below.
+4. Obtain a _free_ API key from `Groq` (https://console.groq.com/keys). Keep this key somewhere safe. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder as below.
 
 ```
 echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
 ```
 
-### 5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file). Pull the required models (https://ollama.com/library) as below.
+5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file). Pull the required models (https://ollama.com/library) as below.
 
 ```
 ollama pull mxbai-embed-large // 669 MB
@@ -58,9 +58,7 @@ ollama pull mxbai-embed-large // 669 MB
 <!-- ollama pull llama2:7b // 3.8 GB
 ollama pull llama-guard3:8b // 4.9 GB -->
 
-### 6. Install `docker` (https://www.docker.com/get-started/).
-
----
+6. Install `docker` (https://www.docker.com/get-started/).
 
 ## Run RA-BSTS Chatbot on the Command Line
 
@@ -103,8 +101,6 @@ node server.js
 ```
 
 <!-- node server.js > "pid_serverlog.log" -->
-
----
 
 ## References
 
