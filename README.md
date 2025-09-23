@@ -4,8 +4,6 @@ _Last Updated: 2025-09-23 (using Groq Client)_
 
 _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 
----
-
 ## Contributors
 
 - [Hannah Kim](https://github.com/hannahkimincompbio) (maintainer)
