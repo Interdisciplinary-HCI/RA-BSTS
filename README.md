@@ -43,7 +43,7 @@ cd backend
 npm install
 ```
 
-### 4. Obtain a _free_ API key from Groq (https://console.groq.com/keys). Keep this key somewhere safe. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder as below.
+### 4. Obtain a _free_ API key from `Groq` (https://console.groq.com/keys). Keep this key somewhere safe. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder as below.
 
 ```
 echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
@@ -58,15 +58,15 @@ ollama pull mxbai-embed-large // 669 MB
 <!-- ollama pull llama2:7b // 3.8 GB
 ollama pull llama-guard3:8b // 4.9 GB -->
 
-### 6. Install docker https://www.docker.com/get-started/.
+### 6. Install `docker` https://www.docker.com/get-started/.
 
 ---
 
 ## Run RA-BSTS Chatbot on the Command Line
 
-Have FOUR tabs open in the terminal to observe each process. Make sure that docker is running in the background.
+Have FOUR tabs open in the terminal to observe each process. Make sure that `docker` is running in the background.
 
-(Or just simply run `sh run.sh` after `cd RA-BSTS`, but do note that processes need to be manually killed for reruns. Make sure that docker is running in the background for this method as well.)
+(Or just simply run `sh run.sh` after `cd RA-BSTS`, but do note that processes need to be manually killed for reruns. Make sure that `docker` is running in the background for this method as well.)
 
 ### 1. Chromadb tab
 
