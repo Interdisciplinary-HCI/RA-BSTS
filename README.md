@@ -32,7 +32,7 @@ Download ZIP file and unzip the file.
 
 ![Download ZIP file](./Download%20Zip.png)
 
-### 2. Install `Node.js` and `npm`. Follow instructions here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+### 2. Install `Node.js` and `npm`. Follow instructions here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
 ### 3. Install package requirements from `package-lock.json`.
 
@@ -65,11 +65,11 @@ ollama pull llama-guard3:8b // 4.9 GB -->
 
 ## Run RA-BSTS Chatbot on the Command Line
 
-Have FOUR tabs open in the terminal to observe each process.
+Have FOUR tabs open in the terminal to observe each process. Make sure that docker is running in the background.
 
-(Or just simply run `sh run.sh` after `cd RA-BSTS`, but do note that processes need to be manually killed for reruns. Make sure that docker is running in the background.)
+(Or just simply run `sh run.sh` after `cd RA-BSTS`, but do note that processes need to be manually killed for reruns. Make sure that docker is running in the background for this method as well.)
 
-### 1. Chromadb tab: Make sure docker is running in the background before running this command
+### 1. Chromadb tab
 
 ```
 docker run -p 8000:8000 -v </absolute/path/on/your/machine>:/data ghcr.io/chroma-core/chroma:latest
