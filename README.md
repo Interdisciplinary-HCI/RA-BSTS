@@ -24,7 +24,7 @@ git clone https://github.com/Interdisciplinary-HCI/RA-BSTS.git
 
 Download ZIP file and unzip the file.
 
-![Download ZIP file](./Download%20ZIP.png)
+![Download ZIP file](./Download%20Zip.png)
 
 2. Install `Node.js` and `npm`. Follow instructions here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
