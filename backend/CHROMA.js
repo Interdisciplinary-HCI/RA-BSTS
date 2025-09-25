@@ -1,6 +1,4 @@
 // Contains functions for ChromaDB vector store and embeddings
-
-
 const { Chroma } = require("@langchain/community/vectorstores/chroma")
 const { OllamaEmbeddings } = require("@langchain/ollama")
 const { RecursiveCharacterTextSplitter } = require("langchain/text_splitter");

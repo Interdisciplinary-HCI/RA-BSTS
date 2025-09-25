@@ -32,7 +32,7 @@ app.post('/Ai/:UserMessage', async (req, res) => {
     try{
         const aiResponse = await getGroqChatCompletion(chatHistory) /////////////////////////////////////////////////
         const aiTextResponse = aiResponse.content || "" // get the response from the AI
-        chatHistory.push({role: "assistant", content: aiTextResponse}) // adds ai response to chat history
+        chatHistory.push({role: "assistant", content: aiTextResponse}) // adds ANY response to chat history
         console.log("server.js | chatHistory: ", chatHistory)
         chatHistory4Log.push({ role:"assistant", content: aiTextResponse, date: new Date().toISOString()})
         res.send(aiTextResponse)
