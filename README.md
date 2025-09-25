@@ -47,14 +47,11 @@ npm install
 echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
 ```
 
-5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file). Pull the required models (https://ollama.com/library) as below.
+5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file). Pull the required model (https://ollama.com/library) as below.
 
 ```
 ollama pull mxbai-embed-large // 669 MB
 ```
-
-<!-- ollama pull llama2:7b // 3.8 GB
-ollama pull llama-guard3:8b // 4.9 GB -->
 
 6. Install `docker` (https://www.docker.com/get-started/).
 
