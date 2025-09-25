@@ -1,6 +1,6 @@
-# Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot (RA-BSTS Chatbot)
+# Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot (RA-BSTS Chatbot) with Guardrails
 
-_Last Updated: 2025-09-23 (using Groq Client)_
+_Last Updated: 2025-09-25_
 
 _Tested on: Apple M1 Pro 16GB Sequoia 15.7_
 
