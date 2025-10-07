@@ -42,6 +42,8 @@ async function guardrailing(queryOrResponse) {
     console.log("GRAQAI.js | Guard Result: ", result);
     if (result === "safe") {
         return true;
+    } else if (result.endsWith("S9")){ // S9: llama-guard Indiscriminate Weapons, when I just asked about the task scenario.
+        return true;
     } else if (result.endsWith("S14")){ // S14: llama-guard Code Interpreter Abuse, so intended more for users' jailbreaking attempts, but it seems to be catching more general things.
         return true;
     } 
