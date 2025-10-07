@@ -81,12 +81,17 @@ async function createVector(sentences) {
 
 async function chromaSearch(context, nResults) {
     const retriever = vectorStore.asRetriever({
-        k: nResults // how many results get printed out
+        k: nResults, // how many results get printed out
     })
-    const results = await retriever.invoke(context) // Searches Chroma for relevant info
-
+    // const results = await retriever.invoke(context) // Searches Chroma for relevant info
     // console.log("The results of : ", results)
     // console.log("Chroma Search Finished, Context: ", context)
+
+    const results = await vectorStore.similaritySearchWithScore(context, nResults);
+    // results.forEach(([doc, score]) => {
+    // console.log("Score:", score);
+    // console.log("Content:", doc.pageContent);
+    // });
 
     return results
 }

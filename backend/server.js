@@ -46,7 +46,7 @@ app.post('/Ai/:UserMessage', async (req, res) => {
         if (err) {
         console.error("Error writing chatHistory:", err);
         } else {
-        console.log("Successfully wrote chatHistory");
+        console.log("Successfully wrote chatHistory ------------------------");
         }
     });
 });
