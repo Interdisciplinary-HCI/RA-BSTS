@@ -41,12 +41,16 @@ async function guardrailing(queryOrResponse) {
     const result = AIMessage.content;
     console.log("GRAQAI.js | Guard Result: ", result);
     if (result === "safe") {
-        return true;
-    } else if (result.endsWith("S14")){ // S14: llama-guard Code Interpreter Abuse, so intended more for users' jailbreaking attempts, but it seems to be catching more general things.
-        return true;
-    } 
-    else {
-        return false;
+        return [true, result];
+    } else {
+        const resultArray = result.split('\n');
+        if (resultArray[1] === "S9"){ // S9: llama-guard Indiscriminate Weapons, when I just asked about the task scenario.
+        return [true, resultArray[1]];
+        } else if (resultArray[1] === "S14"){ // S14: llama-guard Code Interpreter Abuse, so intended more for users' jailbreaking attempts, but it seems to be catching more general things.
+        return [true, resultArray[1]];
+        } else {
+            return [false, resultArray[1]];
+        } 
     }
 }
 
@@ -59,8 +63,8 @@ async function getGroqChatCompletion(chatHistory) {
     // Llama-Guard4
     const guardResult = await guardrailing(chatHistory[chatHistory.length - 1].content) // checks user query for safety
 
-    if (!guardResult) {
-        return { role: "assistant", content: "I'm sorry, but I can't assist with that request." };
+    if (!guardResult[0]) {
+        return { role: "assistant", content: "I'm sorry, but I can't assist with that request because" + " " + guardResult[0] + " (" + guardResult[1] + ")." };
     } else {
         // RAG updated prompt
         const updatedPrompt = await callWithRAGResult(chatHistory, context)
@@ -69,11 +73,11 @@ async function getGroqChatCompletion(chatHistory) {
         // Groq AI response generated here
         const groqResponse = await GROQ.invoke(updatedPrompt);
         // console.log("GRAQAI.js | Groq Response: ", groqResponse);
-        const groqGuardResponse = await guardrailing(groqResponse.content);
-        if (!groqGuardResponse) {
-            return { role: "assistant", content: "I'm sorry, but I can't assist with that request." };
+        const groqGuardResponse = await guardrailing(groqResponse.content); // checks AI response content for safety
+        if (!groqGuardResponse[0]) {
+            return { role: "assistant", content: "I'm sorry, but I can't assist with that request because" + " " + groqGuardResponse[0] + " (" + groqGuardResponse[1] + ")." };
         } else {
-            return groqResponse;
+            return groqResponse; // otherwise, return the AI response with both role AND content
         }
     } 
 }
