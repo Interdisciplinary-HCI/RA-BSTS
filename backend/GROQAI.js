@@ -25,9 +25,8 @@ async function addChunkedFileToChroma() {
 
 async function callWithRAGResult(chatHistory, context) {
     const promptTemplate =  `Please answer the question with the given context if applicable to the question. \
-                            If the context does not help in answering the question, \
-                            please start your response with \
-                            "I am a RA-BSTS chatbot. This is not very relevant to our main topic...".
+                            If the context does not improve the answer, please start your response with \
+                            "I cannot find information that can exactly answer your prompt in my database, but I can try to provide some related information.". 
                         Context: "${context.map((item) => `"${item.pageContent}", `)}" 
                         Question: ${chatHistory[chatHistory.length - 1].content}
                         Chat History: ${chatHistory.map((item) => `"${item.role}: ${item.content}", `)}`
@@ -45,11 +44,11 @@ async function guardrailing(queryOrResponse) {
     } else {
         const resultArray = result.split('\n');
         if (resultArray[1] === "S9"){ // S9: llama-guard Indiscriminate Weapons, when I just asked about the task scenario.
-        return [true, resultArray[1]];
+        return [true, "LikelyBenignForOurPurpose" + " (" + resultArray[1] + ")"];
         } else if (resultArray[1] === "S14"){ // S14: llama-guard Code Interpreter Abuse, so intended more for users' jailbreaking attempts, but it seems to be catching more general things.
-        return [true, resultArray[1]];
+        return [true, "LikelyBenignForOurPurpose" + " (" + resultArray[1] + ")"];
         } else {
-            return [false, resultArray[1]];
+            return [false, resultArray[0] + " (" + resultArray[1] + ")"];
         } 
     }
 }
@@ -57,14 +56,14 @@ async function guardrailing(queryOrResponse) {
 async function getGroqChatCompletion(chatHistory) {
     // RAG is done here
     const context = await chromaSearch(chatHistory[chatHistory.length - 1].content, 3) // last user query content, top three relevant contexts
-    // console.log("GRAQAI.js | User Prompt::::::::::::::::::: " , chatHistory[chatHistory.length - 1].content)
+    console.log("GRAQAI.js | User Prompt:::::::::::::::::::::::::::::::::::::: " , chatHistory[chatHistory.length - 1].content)
     console.log("GRAQAI.js | Retrieval Results: " , context) 
 
     // Llama-Guard4
-    const guardResult = await guardrailing(chatHistory[chatHistory.length - 1].content) // checks user query for safety
+    const guard = await guardrailing(chatHistory[chatHistory.length - 1].content) // checks user query for safety
 
-    if (!guardResult[0]) {
-        return { role: "assistant", content: "I'm sorry, but I can't assist with that request because" + " " + guardResult[0] + " (" + guardResult[1] + ")." };
+    if (!guard[0]) {
+        return { role: "assistant", content: "I'm sorry, but I can't assist with that request because " + guard[1] + "." };
     } else {
         // RAG updated prompt
         const updatedPrompt = await callWithRAGResult(chatHistory, context)
@@ -72,10 +71,12 @@ async function getGroqChatCompletion(chatHistory) {
 
         // Groq AI response generated here
         const groqResponse = await GROQ.invoke(updatedPrompt);
-        // console.log("GRAQAI.js | Groq Response: ", groqResponse);
-        const groqGuardResponse = await guardrailing(groqResponse.content); // checks AI response content for safety
-        if (!groqGuardResponse[0]) {
-            return { role: "assistant", content: "I'm sorry, but I can't assist with that request because" + " " + groqGuardResponse[0] + " (" + groqGuardResponse[1] + ")." };
+        const groqGuard = await guardrailing(groqResponse.content); // checks AI response content for safety
+
+        console.log("GRAQAI.js | Groq Response: ", groqResponse.content);
+
+        if (!groqGuard[0]) {
+            return { role: "assistant", content: "I'm sorry, but I can't assist with that request because " + groqGuard[1] + "`." };
         } else {
             return groqResponse; // otherwise, return the AI response with both role AND content
         }
