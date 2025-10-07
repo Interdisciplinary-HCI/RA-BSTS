@@ -15,6 +15,7 @@ let chatHistory = [
         role: "system", // Admin
         content: "You are an AI chatbot named Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot, or RA-BSTS Chatbot.\
         You are an assistant for question-answering tasks.\
+        You are helping users with questions related to the HyPhy software, which is used for hypothesis testing using phylogenies.\
         If you do not know the answer, say 'I don't know'.\
         "
     },
@@ -33,7 +34,7 @@ app.post('/Ai/:UserMessage', async (req, res) => {
         const aiResponse = await getGroqChatCompletion(chatHistory) /////////////////////////////////////////////////
         const aiTextResponse = aiResponse.content || "" // get the response from the AI
         chatHistory.push({role: "assistant", content: aiTextResponse}) // adds ANY response to chat history
-        console.log("server.js | chatHistory: ", chatHistory)
+        // console.log("server.js | chatHistory: ", chatHistory)
         chatHistory4Log.push({ role:"assistant", content: aiTextResponse, date: new Date().toISOString()})
         res.send(aiTextResponse)
     } catch(error) {
