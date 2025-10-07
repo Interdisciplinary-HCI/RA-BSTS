@@ -64,7 +64,7 @@ async function getGroqChatCompletion(chatHistory) {
     const guardResult = await guardrailing(chatHistory[chatHistory.length - 1].content) // checks user query for safety
 
     if (!guardResult[0]) {
-        return { role: "assistant", content: "I'm sorry, but I can't assist with that request." + " " + guardResult[0] + " " + guardResult[1] };
+        return { role: "assistant", content: "I'm sorry, but I can't assist with that request because" + " " + guardResult[0] + " (" + guardResult[1] + ")." };
     } else {
         // RAG updated prompt
         const updatedPrompt = await callWithRAGResult(chatHistory, context)
@@ -75,7 +75,7 @@ async function getGroqChatCompletion(chatHistory) {
         // console.log("GRAQAI.js | Groq Response: ", groqResponse);
         const groqGuardResponse = await guardrailing(groqResponse.content); // checks AI response content for safety
         if (!groqGuardResponse[0]) {
-            return { role: "assistant", content: "I'm sorry, but I can't assist with that request." + " " + guardResult[0] + " " + guardResult[1] };
+            return { role: "assistant", content: "I'm sorry, but I can't assist with that request because" + " " + groqGuardResponse[0] + " (" + groqGuardResponse[1] + ")." };
         } else {
             return groqResponse; // otherwise, return the AI response with both role AND content
         }
