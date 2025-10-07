@@ -7,7 +7,7 @@ const { AIMessage } = require("@langchain/core/messages");
 require("dotenv").config();
 
 const GROQ = new ChatGroq({
-    model: "llama-3.1-8b-instant", // "llama3-8b-8192" < deprecated
+    model: "llama-3.3-70b-versatile", 
     temperature: .1, // the higher the number the more abstract the AI becomes. In our case we want it low because we are dealing with facts
     apiKey: process.env.GROQ_API_KEY
 })
@@ -42,7 +42,10 @@ async function guardrailing(queryOrResponse) {
     console.log("GRAQAI.js | Guard Result: ", result);
     if (result === "safe") {
         return true;
-    } else {
+    } else if (result.endsWith("S14")){ // S14: llama-guard Code Interpreter Abuse, so intended more for users' jailbreaking attempts, but it seems to be catching more general things.
+        return true;
+    } 
+    else {
         return false;
     }
 }
@@ -50,7 +53,7 @@ async function guardrailing(queryOrResponse) {
 async function getGroqChatCompletion(chatHistory) {
     // RAG is done here
     const context = await chromaSearch(chatHistory[chatHistory.length - 1].content, 3) // last user query content, top three relevant contexts
-    console.log("GRAQAI.js | User Prompt::::::::::::::::::: " , chatHistory[chatHistory.length - 1].content)
+    // console.log("GRAQAI.js | User Prompt::::::::::::::::::: " , chatHistory[chatHistory.length - 1].content)
     console.log("GRAQAI.js | Retrieval Results: " , context) 
 
     // Llama-Guard4
@@ -65,6 +68,7 @@ async function getGroqChatCompletion(chatHistory) {
 
         // Groq AI response generated here
         const groqResponse = await GROQ.invoke(updatedPrompt);
+        // console.log("GRAQAI.js | Groq Response: ", groqResponse);
         const groqGuardResponse = await guardrailing(groqResponse.content);
         if (!groqGuardResponse) {
             return { role: "assistant", content: "I'm sorry, but I can't assist with that request." };
