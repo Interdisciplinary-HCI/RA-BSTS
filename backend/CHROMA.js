@@ -37,7 +37,7 @@ async function createVector(sentences) {
     const vectors = await embeddingModel.embedDocuments(sentences)
 
     //Check for duplicate vectors
-    const existingVectors = await vectorStore.similaritySearch("", 1000) // gets all documents in the database with L2 distance 
+    const existingVectors = await vectorStore.similaritySearch("", 1000) // gets all documents in the database with L2 distance; L2 distance, closer to 0 the better. 
     
     const newVectors = [];
     const newSentences = []
@@ -80,20 +80,24 @@ async function createVector(sentences) {
 }
 
 async function chromaSearch(context, nResults) {
-    const retriever = vectorStore.asRetriever({
-        k: nResults, // how many results get printed out
-    })
+    // const retriever = vectorStore.asRetriever({
+    //     k: nResults, // how many results get printed out
+    // })
     // const results = await retriever.invoke(context) // Searches Chroma for relevant info
     // console.log("The results of : ", results)
     // console.log("Chroma Search Finished, Context: ", context)
 
+    const threshold = 1;
     const results = await vectorStore.similaritySearchWithScore(context, nResults);
     // results.forEach(([doc, score]) => {
     // console.log("Score:", score);
     // console.log("Content:", doc.pageContent);
     // });
 
-    return results
+    // For Chroma, smaller scores mean *closer matches* (distance metric)
+    const filtered = results.filter(([doc, score]) => score < threshold);
+
+    return filtered
 }
 
 
