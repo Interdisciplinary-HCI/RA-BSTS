@@ -7,7 +7,7 @@ const fs = require('fs') // file system
 const path = require('path')
 
 const embeddingModel = new OllamaEmbeddings({
-    model: "embeddinggemma", 
+    model: "nomic-embed-text", 
     baseUrl: "http://127.0.0.1:11434",
 })
 
