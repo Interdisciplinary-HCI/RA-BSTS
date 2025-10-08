@@ -7,14 +7,15 @@ const fs = require('fs') // file system
 const path = require('path')
 
 const embeddingModel = new OllamaEmbeddings({
-    model: "mxbai-embed-large", // Default value
-    baseUrl: "http://127.0.0.1:11434", // Default value
+    model: "embeddinggemma", 
+    baseUrl: "http://127.0.0.1:11434",
 })
 
 const vectorStore = new Chroma(embeddingModel, {
     collectionName: "hyphy",
-    url: "http://localhost:8000",
+    url: "http://127.0.0.1:8000",
 })
+
 
 async function readandChunkFile( filePath, chunkSize, chunkOverlap ) {
         // Get and read documents from path
@@ -29,7 +30,6 @@ async function readandChunkFile( filePath, chunkSize, chunkOverlap ) {
 
         const chunks = await textSplitter.splitText(fileData)
         console.log("CHROMA.js | First 10 chunks are: ", chunks.slice(0, 10))
-
         return chunks
 }
 
@@ -80,27 +80,14 @@ async function createVector(sentences) {
 }
 
 async function chromaSearch(context, nResults) {
-    // const retriever = vectorStore.asRetriever({
-    //     k: nResults, // how many results get printed out
-    // })
-    // const results = await retriever.invoke(context) // Searches Chroma for relevant info
-    // console.log("The results of : ", results)
-    // console.log("Chroma Search Finished, Context: ", context)
-
     const threshold = 1;
     const results = await vectorStore.similaritySearchWithScore(context, nResults);
-    // results.forEach(([doc, score]) => {
-    // console.log("Score:", score);
-    // console.log("Content:", doc.pageContent);
-    // });
 
-    // For Chroma, smaller scores mean *closer matches* (distance metric)
+    // Smaller scores mean *closer matches* (distance metric)
     const filtered = results.filter(([doc, score]) => score < threshold);
 
     return filtered
 }
-
-
 
 // Will be available for import in other files, e.g., GROQAI.js
 module.exports = { createVector, chromaSearch, readandChunkFile };
