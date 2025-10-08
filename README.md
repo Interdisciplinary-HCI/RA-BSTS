@@ -49,12 +49,8 @@ echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
 
 5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file). Pull the required model (https://ollama.com/library) as below.
 
-For testing different models, change the embedding model in 'CHROMA.js', remove the prior '</absolute/path/on/your/machine>', and restart 'Chroma' to avoid dimension mismatch in the collection created.
-
 ```
-ollama pull mxbai-embed-large // 669 MB // Most well-known model
-ollama pull nomic-embed-text //  274 MB // Most downloaded embedding
-ollama pull embeddinggemma // 621 MB // Most recent embedding, requires Ollama v0.11.10 or later
+ollama pull nomic-embed-text //  274 MB
 ```
 
 6. Install `docker` (https://www.docker.com/get-started/).
