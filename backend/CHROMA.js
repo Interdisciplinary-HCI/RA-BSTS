@@ -80,7 +80,7 @@ async function createVector(sentences) {
 }
 
 async function chromaSearch(context, nResults) {
-    const threshold = 1;
+    const threshold = 0.9; // Threshold 0.9, smaller than 0.9 seems to be good for our use case -- otherwise, GenAI models take longer to answer with lower quality results.
     const results = await vectorStore.similaritySearchWithScore(context, nResults);
 
     // Smaller scores mean *closer matches* (distance metric)
