@@ -32,7 +32,16 @@ app.post('/Ai/:UserMessage', async (req, res) => {
     chatHistory4Log.push({ role:"user", content: userMessage, date: new Date().toISOString()})
     try{
         const aiResponse = await getGroqChatCompletion(chatHistory) /////////////////////////////////////////////////
-        const aiTextResponse = aiResponse.content || "" // get the response from the AI
+        // const aiTextResponse = aiResponse.content || "" // get the response from the AI
+
+        // Formatting AI response to have line breaks for better readability
+        const lineLength = 80; // max characters per line
+        // Insert "\n" every 80 characters (you can adjust the number)
+        const aiTextResponseRaw = aiResponse.content || ""
+        const aiTextResponse = aiTextResponseRaw.replace(new RegExp(`(.{1,${lineLength}})(\\s+|$)`, 'g'),'$1\n');
+
+        console.log(aiTextResponse);
+
         chatHistory.push({role: "assistant", content: aiTextResponse}) // adds ANY response to chat history
         // console.log("server.js | chatHistory: ", chatHistory)
         chatHistory4Log.push({ role:"assistant", content: aiTextResponse, date: new Date().toISOString()})

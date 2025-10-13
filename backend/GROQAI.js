@@ -7,7 +7,7 @@ const { AIMessage } = require("@langchain/core/messages");
 require("dotenv").config();
 
 const GROQ = new ChatGroq({
-    model: "llama-3.3-70b-versatile", 
+    model: "openai/gpt-oss-20b", //"llama-3.3-70b-versatile", 
     temperature: .1, // the higher the number the more abstract the AI becomes. In our case we want it low because we are dealing with facts
     apiKey: process.env.GROQ_API_KEY
 })
@@ -54,26 +54,30 @@ async function guardrailing(queryOrResponse) {
 }
 
 async function getGroqChatCompletion(chatHistory) {
-    // RAG is done here
-    const context = await chromaSearch(chatHistory[chatHistory.length - 1].content, 3) // last user query content, top three relevant contexts
     console.log("GRAQAI.js | User Prompt:::::::::::::::::::::::::::::::::::::: " , chatHistory[chatHistory.length - 1].content)
-    console.log("GRAQAI.js | Retrieval Results: " , context) 
+
+    // // RAG is done here; does RAG whether user query is safe or not for development purposes, users will not see this.
+    // const context = await chromaSearch(chatHistory[chatHistory.length - 1].content, 3) // last user query content, top three relevant contexts
+    // console.log("GRAQAI.js | Retrieval Results: " , context) 
 
     // Llama-Guard4
-    const guard = await guardrailing(chatHistory[chatHistory.length - 1].content) // checks user query for safety
+    const guard = await guardrailing(chatHistory[chatHistory.length - 1].content) // checks user QUERY for safety
 
     if (!guard[0]) {
         return { role: "assistant", content: "I'm sorry, but I can't assist with that request because " + guard[1] + "." };
     } else {
-        // RAG updated prompt
-        const updatedPrompt = await callWithRAGResult(chatHistory, context)
-        // console.log("GRAQAI.js | Updated Prompt: ", updatedPrompt)
+        // // RAG updated prompt
+        // const updatedPrompt = await callWithRAGResult(chatHistory, context)
+        // // console.log("GRAQAI.js | Updated Prompt: ", updatedPrompt)
 
-        // Groq AI response generated here
-        const groqResponse = await GROQ.invoke(updatedPrompt);
+        // // Groq AI response generated here
+        // const groqResponse = await GROQ.invoke(updatedPrompt);
+        // const groqGuard = await guardrailing(groqResponse.content); // checks AI response content for safety
+        // console.log("GRAQAI.js | Groq Response with RAG: ", groqResponse.content);
+        // Groq Response WITHOUT RAG but with guardrailing
+        const groqResponse = await GROQ.invoke(chatHistory);
         const groqGuard = await guardrailing(groqResponse.content); // checks AI response content for safety
-
-        console.log("GRAQAI.js | Groq Response: ", groqResponse.content);
+        console.log("GRAQAI.js | Groq Response WITHOUT RAG: ", groqResponse.content);
 
         if (!groqGuard[0]) {
             return { role: "assistant", content: "I'm sorry, but I can't assist with that request because " + groqGuard[1] + "`." };
