@@ -35,10 +35,37 @@ app.post('/Ai/:UserMessage', async (req, res) => {
         // const aiTextResponse = aiResponse.content || "" // get the response from the AI
 
         // Formatting AI response to have line breaks for better readability
-        const lineLength = 80; // max characters per line
-        // Insert "\n" every 80 characters (you can adjust the number)
+        const lineLength = 100; // max characters per line
         const aiTextResponseRaw = aiResponse.content || ""
-        const aiTextResponse = aiTextResponseRaw.replace(new RegExp(`(.{1,${lineLength}})(\\s+|$)`, 'g'),'$1\n');
+        // Insert "\n" every `lineLength` characters (you can adjust the number)
+        let result = "";
+        let lastBreak = 0;
+
+        for (let i = 0; i < aiTextResponseRaw.length; i++) {
+            const char = aiTextResponseRaw[i];
+            result += char;
+
+            // if a newline appears naturally, reset the counter
+            if (char === "\n") {
+                lastBreak = i;
+            }
+
+            // if we've gone more than lineLength chars since last newline, insert one at a space
+            if (i - lastBreak >= lineLength) {
+                // look backward for a nearby space to break naturally
+                const lastSpace = result.lastIndexOf(" ");
+                if (lastSpace !== -1 && lastSpace > lastBreak) {
+                result = result.substring(0, lastSpace) + "\n" + result.substring(lastSpace + 1);
+                lastBreak = lastSpace;
+                } else {
+                // if no space, just force-break at current position
+                result += "\n";
+                lastBreak = i;
+                }
+            }
+        }
+
+        const aiTextResponse = result.trim();
 
         console.log(aiTextResponse);
 

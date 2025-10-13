@@ -7,7 +7,7 @@ const { AIMessage } = require("@langchain/core/messages");
 require("dotenv").config();
 
 const GROQ = new ChatGroq({
-    model: "openai/gpt-oss-20b", //"llama-3.3-70b-versatile", 
+    model: "llama-3.3-70b-versatile", //"llama-3.3-70b-versatile", "openai/gpt-oss-120b", "openai/gpt-oss-20b"
     temperature: .1, // the higher the number the more abstract the AI becomes. In our case we want it low because we are dealing with facts
     apiKey: process.env.GROQ_API_KEY
 })
