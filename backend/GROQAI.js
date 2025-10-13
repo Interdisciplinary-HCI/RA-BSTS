@@ -24,13 +24,11 @@ async function addChunkedFileToChroma() {
 }
 
 async function callWithRAGResult(chatHistory, context) {
-    const promptTemplate =  `Please answer the question with the given context if applicable to the question. \
-                            If the context does not improve the answer, please start your response with \
-                            "I cannot find information that can exactly answer your prompt in my database, but I can try to provide some related information.". 
+    const promptTemplate =  `
                         Context: "${context.map((item) => `"${item.pageContent}", `)}" 
                         Question: ${chatHistory[chatHistory.length - 1].content}
-                        Chat History: ${chatHistory.map((item) => `"${item.role}: ${item.content}", `)}`
-
+                        Chat History: ${chatHistory.map((item) => `"${item.role}: ${item.content}", `)
+                    }`
     
     return promptTemplate
 }
@@ -56,9 +54,9 @@ async function guardrailing(queryOrResponse) {
 async function getGroqChatCompletion(chatHistory) {
     console.log("GRAQAI.js | User Prompt:::::::::::::::::::::::::::::::::::::: " , chatHistory[chatHistory.length - 1].content)
 
-    // // RAG is done here; does RAG whether user query is safe or not for development purposes, users will not see this.
-    // const context = await chromaSearch(chatHistory[chatHistory.length - 1].content, 3) // last user query content, top three relevant contexts
-    // console.log("GRAQAI.js | Retrieval Results: " , context) 
+    // RAG is done here; does RAG whether user query is safe or not for development purposes, users will not see this.
+    const context = await chromaSearch(chatHistory[chatHistory.length - 1].content, 3) // last user query content, top three relevant contexts
+    console.log("GRAQAI.js | Retrieval Results: " , context) 
 
     // Llama-Guard4
     const guard = await guardrailing(chatHistory[chatHistory.length - 1].content) // checks user QUERY for safety
@@ -66,18 +64,18 @@ async function getGroqChatCompletion(chatHistory) {
     if (!guard[0]) {
         return { role: "assistant", content: "I'm sorry, but I can't assist with that request because " + guard[1] + "." };
     } else {
-        // // RAG updated prompt
-        // const updatedPrompt = await callWithRAGResult(chatHistory, context)
-        // // console.log("GRAQAI.js | Updated Prompt: ", updatedPrompt)
+        // RAG updated prompt
+        const updatedPrompt = await callWithRAGResult(chatHistory, context)
+        // console.log("GRAQAI.js | Updated Prompt: ", updatedPrompt)
 
-        // // Groq AI response generated here
-        // const groqResponse = await GROQ.invoke(updatedPrompt);
-        // const groqGuard = await guardrailing(groqResponse.content); // checks AI response content for safety
-        // console.log("GRAQAI.js | Groq Response with RAG: ", groqResponse.content);
-        // Groq Response WITHOUT RAG but with guardrailing
-        const groqResponse = await GROQ.invoke(chatHistory);
+        // Groq AI response generated here
+        const groqResponse = await GROQ.invoke(updatedPrompt);
         const groqGuard = await guardrailing(groqResponse.content); // checks AI response content for safety
-        console.log("GRAQAI.js | Groq Response WITHOUT RAG: ", groqResponse.content);
+        console.log("GRAQAI.js | Groq Response with RAG: ", groqResponse.content);
+        // // Groq Response WITHOUT RAG but with guardrailing
+        // const groqResponse = await GROQ.invoke(chatHistory);
+        // const groqGuard = await guardrailing(groqResponse.content); // checks AI response content for safety
+        // console.log("GRAQAI.js | Groq Response WITHOUT RAG: ", groqResponse.content);
 
         if (!groqGuard[0]) {
             return { role: "assistant", content: "I'm sorry, but I can't assist with that request because " + groqGuard[1] + "`." };
