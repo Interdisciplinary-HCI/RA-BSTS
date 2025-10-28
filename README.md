@@ -1,14 +1,17 @@
 # Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot (RA-BSTS Chatbot) with Guardrails
 
-_README Last Updated: 2025-10-08_
+_README Last Updated: 2025-10-28_
 
-_Tested on: Apple M1 Pro 16GB Sequoia 15.7_
+_Tested on:_
+- Apple M1 Pro 16GB Sequoia 15.7
+- Windows 10 Enterprise 24H2
 
 ## Contributors
 
 - [Hannah Kim](https://github.com/hannahkimincompbio) (maintainer)
 - [Minh Doan](https://www.github.com/Dwanky-y)
 - [Rahad Arman Nabid](https://github.com/rahadarmannabid)
+- [Elijah Jordan](https://github.com/ejordan1tg)
 
 ## Table of Contents
 
@@ -44,7 +47,14 @@ npm install
 4. Obtain a _free_ API key from `Groq` (https://console.groq.com/keys). Keep this key somewhere safe. Make an `.env` file containing `GROQ_API_KEY = "gsk_<your_api_key>"` in the `/backend` folder as below.
 
 ```
+// MAC
 echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
+cat ./backend/.env
+```
+```
+// Windows
+Set-Content -Path "./backend/.env" -Value 'GROQ_API_KEY = "gsk_<your_api_key>"'
+Get-Content -Path "./backend/.env"
 ```
 
 5. Install `ollama` (https://github.com/ollama/ollama?tab=readme-ov-file). Pull the required model (https://ollama.com/library) as below.
