@@ -3,6 +3,7 @@
 _README Last Updated: 2025-10-28_
 
 _Tested on:_
+
 - Apple M1 Pro 16GB Sequoia 15.7
 - Windows 10 Enterprise 24H2
 
@@ -51,6 +52,7 @@ npm install
 echo 'GROQ_API_KEY = "gsk_<your_api_key>"' > ./backend/.env
 cat ./backend/.env
 ```
+
 ```
 // Windows
 Set-Content -Path "./backend/.env" -Value 'GROQ_API_KEY = "gsk_<your_api_key>"'
