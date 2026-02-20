@@ -13,6 +13,13 @@ const GROQ = new ChatGroq({
 })
 
 const GUARDRAIL = new ChatGroq({
+    // "meta-llama/llama-guard-4-12b" will be deprecated on Groq as of 2026-03-05. It used to return things like "unsafe S9".
+
+    // The alternative suggested by Groq (https://console.groq.com/docs/models) is "openai/gpt-oss-safeguard-20b", but that would mean replacing the model in our GROQ constant above because guardrailing is done inside the generator model. 
+    // Instead of generating answers, it would simply return "I’m sorry, but I can’t share that."
+
+    // Other options are "meta-llama/llama-prompt-guard-2-22m" and "meta-llama/llama-prompt-guard-2-86m". They can replace the model in the GUARDRAIL constant. They will return a number when safe or simply error out when unsafe.
+
     model: "meta-llama/llama-guard-4-12b", 
     temperature: .1, // the higher the number the more abstract the AI becomes. In our case we want it low because we are dealing with facts
     apiKey: process.env.GROQ_API_KEY
@@ -37,6 +44,7 @@ async function guardrailing(queryOrResponse) {
     const AIMessage = await GUARDRAIL.invoke(queryOrResponse);
     const result = AIMessage.content;
     console.log("GRAQAI.js | Guard Result: ", result);
+    // Llama-Guard4
     if (result === "safe") {
         return [true, result];
     } else {
@@ -58,9 +66,10 @@ async function getGroqChatCompletion(chatHistory) {
     const context = await chromaSearch(chatHistory[chatHistory.length - 1].content, 3) // last user query content, top three relevant contexts
     console.log("GRAQAI.js | Retrieval Results: " , context) 
 
-    // Llama-Guard4
+    // Guardrail
     const guard = await guardrailing(chatHistory[chatHistory.length - 1].content) // checks user QUERY for safety
 
+    // Llama-Guard4
     if (!guard[0]) {
         return { role: "assistant", content: "I'm sorry, but I can't assist with that request because " + guard[1] + "." };
     } else {
@@ -83,6 +92,7 @@ async function getGroqChatCompletion(chatHistory) {
             return groqResponse; // otherwise, return the AI response with both role AND content
         }
     } 
+
 }
 
 addChunkedFileToChroma();
