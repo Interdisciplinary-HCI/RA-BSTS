@@ -44,7 +44,7 @@ async function guardrailing(queryOrResponse) {
     const AIMessage = await GUARDRAIL.invoke(queryOrResponse);
     const result = AIMessage.content;
     console.log("GRAQAI.js | Guard Result: ", result);
-    // Llama-Guard4
+
     if (result === "safe") {
         return [true, result];
     } else {
@@ -69,7 +69,6 @@ async function getGroqChatCompletion(chatHistory) {
     // Guardrail
     const guard = await guardrailing(chatHistory[chatHistory.length - 1].content) // checks user QUERY for safety
 
-    // Llama-Guard4
     if (!guard[0]) {
         return { role: "assistant", content: "I'm sorry, but I can't assist with that request because " + guard[1] + "." };
     } else {

@@ -1,6 +1,14 @@
+![System Diagram](./README_images/System%20Diagram.png)
+
 # Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot (RA-BSTS Chatbot) with Guardrails
 
-_README Last Updated: 2025-10-28_
+_README Last Updated: 2026-02-24_
+
+![User Interface](./README_images/User%20Interface.png)
+![Study Design](./README_images/Study%20Design.png)
+
+<span style="color: purple;">
+:pushpin: Note: The guardrail model `meta-llama/llama-guard-4-12b` will be deprecated on Groq effective 2026-03-05. While there are alternative guardrail models, making lasting changes in `backend/GROQAI.js` will alter the system diagram above as alternative guardrails are implemented within the generator model or less explicit about hazard categories. [See the commit 3afb983 for details](https://github.com/Interdisciplinary-HCI/RA-BSTS/commit/3afb98323672459f3f19bf2863a5678c0f674156). As such, we will not update the code in order to preserve the setup as described in Kim _et al_ 2026 and archive the repo. For the reuse in the future, the code would need to be updated.</span>
 
 _Tested on:_
 
@@ -13,6 +21,12 @@ _Tested on:_
 - [Minh Doan](https://www.github.com/Dwanky-y)
 - [Rahad Arman Nabid](https://github.com/rahadarmannabid)
 - [Elijah Jordan](https://github.com/ejordan1tg)
+
+## Citation
+
+TBD
+
+---
 
 ## Table of Contents
 
@@ -32,7 +46,7 @@ git clone https://github.com/Interdisciplinary-HCI/RA-BSTS.git
 
 (Or download ZIP file and unzip the file.)
 
-![Download ZIP file](./Download%20Zip.png)
+![Download ZIP file](./README_images/Download%20Zip.png)
 
 2. Install `Node.js` and `npm` (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
