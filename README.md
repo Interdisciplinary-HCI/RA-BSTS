@@ -9,11 +9,10 @@ _Tested on:_
 - Apple M1 Pro 16GB Sequoia 15.7
 - Windows 10 Enterprise 24H2
 
+:pushpin: Note: The guardrail model `meta-llama/llama-guard-4-12b` will be deprecated on Groq effective 2026-03-05. While there are alternative guardrail models, making lasting changes in `backend/GROQAI.js` will alter the system diagram above as alternative guardrails are implemented within the generator model or less explicit about hazard categories. [See the commit 3afb983 for details](https://github.com/Interdisciplinary-HCI/RA-BSTS/commit/3afb98323672459f3f19bf2863a5678c0f674156). As such, we will not update the code in order to preserve the setup as described in Kim _et al_ 2026 and archive the repo. For the reuse in the future, the code would need to be updated.
+
 ![User Interface](./README_images/User%20Interface.png)
 ![Study Design](./README_images/Study%20Design.png)
-
-<span style="color:purple;">
-:pushpin: **Note: The guardrail model `meta-llama/llama-guard-4-12b` will be deprecated on Groq effective 2026-03-05. While there are alternative guardrail models, making lasting changes in `backend/GROQAI.js` will alter the system diagram above as alternative guardrails are implemented within the generator model or less explicit about hazard categories. [See the commit 3afb983 for details](https://github.com/Interdisciplinary-HCI/RA-BSTS/commit/3afb98323672459f3f19bf2863a5678c0f674156). As such, we will not update the code in order to preserve the setup as described in Kim _et al_ 2026 and archive the repo. For the reuse in the future, the code would need to be updated.**</span>
 
 ## Contributors
 
@@ -24,7 +23,7 @@ _Tested on:_
 
 ## Citation
 
-TBD
+Kim, H., Nabid, R. A., Sorathiya, J., Doan, M., Jordan, E., Nasimova, R., Kosakovsky Pond, S. L., MacNeil, S. (2026). Changing the Optics: Comparing Traditional and Retrieval-Augmented GenAI E-Tutorials in Interdisciplinary Learning. _arXiv_, 1-16. doi:TBD
 
 ---
 
