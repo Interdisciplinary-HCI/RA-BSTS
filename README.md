@@ -9,12 +9,12 @@ _Tested on:_
 - Apple M1 Pro 16GB Sequoia 15.7
 - Windows 10 Enterprise 24H2
 
-:pushpin: Note: The guardrail model `meta-llama/llama-guard-4-12b` will be deprecated on Groq effective 2026-03-05. While there are alternative guardrail models, making lasting changes in `backend/GROQAI.js` will alter the system diagram above as alternative guardrails are implemented within the generator model or are less explicit about hazard categories. [See commit 3afb983 for details](https://github.com/Interdisciplinary-HCI/RA-BSTS/commit/3afb98323672459f3f19bf2863a5678c0f674156). As such, we will not update the code in order to preserve the setup as described in Kim _et al_ 2026 and archive the repository. For the reuse in the future, the code would need to be updated.
+:pushpin: Note: The guardrail model `meta-llama/llama-guard-4-12b` will be deprecated on Groq effective 2026-03-05. While there are alternative guardrail models, making lasting changes in `backend/GROQAI.js` will alter the system diagram above as alternative guardrails are implemented within a generator model or are less explicit about hazard categories. [See commit 3afb983 for details](https://github.com/Interdisciplinary-HCI/RA-BSTS/commit/3afb98323672459f3f19bf2863a5678c0f674156). As such, we will not update the code in order to preserve the setup as described in Kim _et al_ 2026 and archive the repository. For reuse in the future, the code would need to be updated.
 
 ## Table of Contents
 
 - [**Code Contributors**](#code-contributors)
-- [**Comparison of User Interfaces**](#code-contributors)
+- [**Comparison of User Interfaces**](#comparison-of-user-interfaces-traditional-and-genai-e-tutorials)
 - [**Study Design**](#study-design)
 - [**Citation**](#citation)
 - [**Installation**](#installation)
@@ -30,7 +30,7 @@ _Tested on:_
 - [Rahad Arman Nabid](https://github.com/rahadarmannabid)
 - [Elijah Jordan](https://github.com/ejordan1tg)
 
-## Comparison of User Interfaces ([traditional](https://github.com/Interdisciplinary-HCI/RA-BSTS/blob/496b94c34303b9b21de69ddcc5eb1a64a6987cf7/Traditional%20E-Tutorial/HyPhy%20--%20Unveiling%20Natural%20Selection%20through%20Computation.md) and GenAI e-tutorials)
+## Comparison of User Interfaces ([Traditional](https://github.com/Interdisciplinary-HCI/RA-BSTS/blob/496b94c34303b9b21de69ddcc5eb1a64a6987cf7/Traditional%20E-Tutorial/HyPhy%20--%20Unveiling%20Natural%20Selection%20through%20Computation.md) and GenAI e-tutorials)
 
 ![User Interface](./README_images/User%20Interface.png)
 
