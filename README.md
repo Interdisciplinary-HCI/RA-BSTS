@@ -40,7 +40,7 @@ _Tested on:_
 
 ## Citation
 
-Kim, H., Nabid, R. A., Sorathiya, J., Doan, M., Jordan, E., Nasimova, R., Kosakovsky Pond, S. L., MacNeil, S. (2026). Changing the Optics: Comparing Traditional and Retrieval-Augmented GenAI E-Tutorials in Interdisciplinary Learning. _arXiv_, 1-16. doi:TBD
+Kim, H., Nabid, R. A., Sorathiya, J., Doan, M., Jordan, E., Nasimova, R., Kosakovsky Pond, S. L., MacNeil, S. (2026). Changing the Optics: Comparing Traditional and Retrieval-Augmented GenAI E-Tutorials in Interdisciplinary Learning. _arXiv_, 1-16. doi:[TBD](researchgate)
 
 ---
 

@@ -1,8 +1,8 @@
 # Project Task
 
-## Task Scenario 
+## Task Scenario (Version B)
 
-`video` https://youtube.com/shorts/Bnxgrbpujrk
+`video` https://youtube.com/shorts/Bnxgrbpujrk (Version B)
 
 You are a new researcher in a bioinformatics lab. Your mentor asks you to look at a file titled `SARS-CoV-2-spike.nex` https://github.com/veg/hyphy/blob/master/tests/data/SARS-CoV-2-spike.nex containing COVID-19 virus sequences (i.e., beta, delta, and omicron variants) to see which positions in the sequence need to be monitored by the World Health Organization (WHO), to track where in the sequence natural selection is likely occurring. 
 
