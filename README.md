@@ -1,24 +1,46 @@
+![System Diagram](./README_images/System%20Diagram.png)
+
 # Retrieval-Augmented Bioinformatics Software Tutorial Supporting Chatbot (RA-BSTS Chatbot) with Guardrails
 
-_README Last Updated: 2025-10-28_
+_README Last Updated: 2026-02-24_
 
 _Tested on:_
 
 - Apple M1 Pro 16GB Sequoia 15.7
 - Windows 10 Enterprise 24H2
 
-## Contributors
+:pushpin: Note: The guardrail model `meta-llama/llama-guard-4-12b` will be deprecated on Groq effective 2026-03-05. While there are alternative guardrail models, making lasting changes in `backend/GROQAI.js` will alter the system diagram above as alternative guardrails are implemented within a generator model or are less explicit about hazard categories. [See commit 3afb983 for details](https://github.com/Interdisciplinary-HCI/RA-BSTS/commit/3afb98323672459f3f19bf2863a5678c0f674156). As such, we will not update the code in order to preserve the setup as described in Kim _et al_ 2026 and archive the repository. For reuse in the future, the code would need to be updated.
+
+## Table of Contents
+
+- [**Code Contributors**](#code-contributors)
+- [**Comparison of User Interfaces**](#comparison-of-user-interfaces-traditional-and-genai-e-tutorials)
+- [**Study Design**](#study-design)
+- [**Citation**](#citation)
+- [**Installation**](#installation)
+- [**Run RA-BSTS Chatbot on the Command Line**](#run-ra-bsts-chatbot-on-the-command-line)
+- [**References**](#references)
+
+---
+
+## Code Contributors
 
 - [Hannah Kim](https://github.com/hannahkimincompbio) (maintainer)
 - [Minh Doan](https://www.github.com/Dwanky-y)
 - [Rahad Arman Nabid](https://github.com/rahadarmannabid)
 - [Elijah Jordan](https://github.com/ejordan1tg)
 
-## Table of Contents
+## Comparison of User Interfaces ([Traditional](https://github.com/Interdisciplinary-HCI/RA-BSTS/blob/496b94c34303b9b21de69ddcc5eb1a64a6987cf7/Traditional%20E-Tutorial/HyPhy%20--%20Unveiling%20Natural%20Selection%20through%20Computation.md) and GenAI e-tutorials)
 
-- [**Installation**](#installation)
-- [**Run RA-BSTS Chatbot on the Command Line**](#run-ra-bsts-chatbot-on-the-command-line)
-- [**References**](#references)
+![User Interface](./README_images/User%20Interface.png)
+
+## Study Design
+
+![Study Design](./README_images/Study%20Design.png)
+
+## Citation
+
+Kim, H., Nabid, R. A., Sorathiya, J., Doan, M., Jordan, E., Nasimova, R., Kosakovsky Pond, S. L., MacNeil, S. (2026). Changing the Optics: Comparing Traditional and Retrieval-Augmented GenAI E-Tutorials in Interdisciplinary Learning. _arXiv_, 1-16. doi:[10.48550/arXiv.2602.20544](https://www.researchgate.net/publication/401176894)
 
 ---
 
@@ -32,7 +54,7 @@ git clone https://github.com/Interdisciplinary-HCI/RA-BSTS.git
 
 (Or download ZIP file and unzip the file.)
 
-![Download ZIP file](./Download%20Zip.png)
+![Download ZIP file](./README_images/Download%20Zip.png)
 
 2. Install `Node.js` and `npm` (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
